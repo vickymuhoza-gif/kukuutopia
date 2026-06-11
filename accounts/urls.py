@@ -3,11 +3,8 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import (
-    UserViewSet,
-    LocationViewSet,
-    ContactViewSet,
-    NotificationViewSet,
-    RegisterView,
+    UserViewSet, LocationViewSet, ContactViewSet,
+    NotificationViewSet, BranchViewSet, RegisterView,
 )
 
 router = DefaultRouter()
@@ -15,6 +12,7 @@ router.register(r'users', UserViewSet, basename='user')
 router.register(r'locations', LocationViewSet, basename='location')
 router.register(r'contacts', ContactViewSet, basename='contact')
 router.register(r'notifications', NotificationViewSet, basename='notification')
+router.register(r'branches', BranchViewSet, basename='branch')
 
 urlpatterns = [
     path('auth/register/', RegisterView.as_view(), name='auth-register'),
